@@ -1,11 +1,13 @@
 #include <stdio.h>
-
 void printArray(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         printf("%d ", arr[i]);
     }
     printf("\n");
 }
+void (*printArrayPtr)(int[], int) = printArray;
+
+//--------------------------------------------------------------
 
 void findMax(int arr[], int size) {
     int max = arr[0];
@@ -16,6 +18,9 @@ void findMax(int arr[], int size) {
     }
     printf("Maximum value: %d\n", max);
 }
+void (*findMaxPtr)(int[], int) = findMax;
+
+//---------------------------------------------------------------
 
 void findMin(int arr[], int size) {
     int min = arr[0];
@@ -26,6 +31,9 @@ void findMin(int arr[], int size) {
     }
     printf("Minimum value: %d\n", min);
 }
+void (*findMinPtr)(int[], int) = findMin;
+
+//----------------------------------------------------------------
 
 void sumArray(int arr[], int size) {
     int sum = 0;
@@ -34,6 +42,9 @@ void sumArray(int arr[], int size) {
     }
     printf("Sum of array elements: %d\n", sum);
 }
+void (*sumArrayPtr)(int[], int) = sumArray;
+
+//----------------------------------------------------------------
 
 void sumofArrays(int arr1[], int arr2[], int size){
     int sum[size];
@@ -46,6 +57,9 @@ void sumofArrays(int arr1[], int arr2[], int size){
     }
     printf("\n");
 }
+void (*sumofArraysPtr)(int[], int[], int) = sumofArrays;
+
+//------------------------------------------------------------------
 
 void reverseArray(int arr[], int size) {
     printf("Reversed Array: ");
@@ -54,6 +68,9 @@ void reverseArray(int arr[], int size) {
     }
     printf("\n");
 }
+void (*reverseArrayPtr)(int[], int) = reverseArray;
+
+//------------------------------------------------------------------
 
 void bubbleSort(int arr[], int size) {
     int i, j, temp;
@@ -72,6 +89,9 @@ void bubbleSort(int arr[], int size) {
     }
     printf("\n");
 }
+void (*bubbleSortPtr)(int[], int) = bubbleSort;
+
+//------------------------------------------------------------------
 
 void getIndexOfElement(int arr[], int size, int element){
     int index=-1;
@@ -84,6 +104,9 @@ void getIndexOfElement(int arr[], int size, int element){
     }
     printf("Element not found\n");
 }
+void (*getIndexOfElementPtr)(int[], int, int) = getIndexOfElement;
+
+//------------------------------------------------------------------
 
 void replaceElement(int arr[], int size, int oldVal, int newVal){
     int found=0;
@@ -102,6 +125,9 @@ void replaceElement(int arr[], int size, int oldVal, int newVal){
     }
     printf("\n");
 }
+void (*replaceElementPtr)(int[], int, int, int) = replaceElement;
+
+//------------------------------------------------------------------
 
 void deleteElement(int arr[], int size, int element){
     int index=-1;
@@ -127,6 +153,9 @@ void deleteElement(int arr[], int size, int element){
     }
     printf("\n");
 }
+void (*deleteElementPtr)(int[], int, int) = deleteElement;
+
+//------------------------------------------------------------------
 
 void factorial(int n){
     if(n<0){
@@ -140,6 +169,9 @@ void factorial(int n){
         printf("Factorial: %d\n",f);
     }
 }
+void (*factorialPtr)(int) = factorial;
+
+//------------------------------------------------------------------
 
 void isPrime(int num){
     int i, isPrime = 1;
@@ -161,6 +193,9 @@ void isPrime(int num){
         printf("%d is not a prime number.\n", num);
     }
 }
+void (*isPrimePtr)(int) = isPrime;
+
+//------------------------------------------------------------------
 
 void isPalindrome(int num){
     int original=num, reversed=0, digit;
@@ -179,6 +214,9 @@ void isPalindrome(int num){
         printf("%d is not a palindrome number\n", original);
     }
 }
+void (*isPalindromePtr)(int) = isPalindrome;
+
+//------------------------------------------------------------------
 
 void checkEvenorOdd(int num){
     if(num%2==0){
@@ -188,6 +226,9 @@ void checkEvenorOdd(int num){
         printf("%d is odd\n",num);
     }
 }
+void (*checkEvenorOddPtr)(int) = checkEvenorOdd;
+
+//------------------------------------------------------------------
 
 void isArmstrong(int num){
     int count=0;
@@ -213,6 +254,9 @@ void isArmstrong(int num){
         printf("%d is not an Armstrong number\n", num);
     }
 }
+void (*isArmstrongPtr)(int) = isArmstrong;
+
+//------------------------------------------------------------------
 
 void isPerfect(int num){
     int sum=0;
@@ -228,6 +272,9 @@ void isPerfect(int num){
         printf("%d is not a perfect number\n",num);
     }
 }
+void (*isPerfectPtr)(int) = isPerfect;
+
+//------------------------------------------------------------------
 
 void eligibletovote(int age, int eligibleage){
     if(age>=eligibleage){
@@ -237,6 +284,9 @@ void eligibletovote(int age, int eligibleage){
         printf("Person is not eligible to vote\n");
     }
 }
+void (*eligibletovotePtr)(int, int) = eligibletovote;
+
+//------------------------------------------------------------------
 
 void simpleCalculator(float num1, float num2, char operator){
     float result;
@@ -266,6 +316,9 @@ void simpleCalculator(float num1, float num2, char operator){
             printf("Invalid operator\n");
     }
 }
+void (*simpleCalculatorPtr)(float, float, char) = simpleCalculator;
+
+//------------------------------------------------------------------
 
 void isLeapYear(int year){
     if((year%4==0 && year%100!=0)||(year%400==0)){
@@ -275,6 +328,9 @@ void isLeapYear(int year){
         printf("%d is not a leap year\n", year);
     }
 }
+void (*isLeapYearPtr)(int) = isLeapYear;
+
+//------------------------------------------------------------------
 
 void grademarking(int marks){
     if(marks>90){
@@ -296,6 +352,9 @@ void grademarking(int marks){
         printf("Fail\n");
     }
 }
+void (*grademarkingPtr)(int) = grademarking;
+
+//------------------------------------------------------------------
 
 void calculateSI(float principal, float rate, float time){
     float SI;
@@ -307,6 +366,9 @@ void calculateSI(float principal, float rate, float time){
         printf("Invalid Values\n");
     }
 }
+void (*calculateSIPtr)(float, float, float) = calculateSI;
+
+//------------------------------------------------------------------
 
 void isLowerCaseorUpperCase(char ch){
     if(ch>='A' && ch<='Z'){
@@ -319,6 +381,9 @@ void isLowerCaseorUpperCase(char ch){
         printf("%c in not a letter\n", ch);
     }
 }
+void (*isLowerCaseorUpperCasePtr)(char) = isLowerCaseorUpperCase;
+
+//------------------------------------------------------------------
 
 void isVowel(char ch){
     if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u' || ch=='A' || ch=='E' || ch=='I' || ch=='O' || ch=='U'){
@@ -328,6 +393,9 @@ void isVowel(char ch){
         printf("%c is not a vowel\n", ch);
     }
 }
+void (*isVowelPtr)(char) = isVowel;
+
+//------------------------------------------------------------------
 
 void convertCase(char ch){
     if(ch>='A' && ch<='Z'){
@@ -342,6 +410,9 @@ void convertCase(char ch){
         printf("Invalid Input\n");
     }
 }
+void (*convertCasePtr)(char) = convertCase;
+
+//------------------------------------------------------------------
 
 void sumOfDigits(int num){
     int sum=0;
@@ -351,6 +422,9 @@ void sumOfDigits(int num){
     }
     printf("%d\n",sum);
 }
+void (*sumOfDigitsPtr)(int) = sumOfDigits;
+
+//------------------------------------------------------------------
 
 void fibonacciSeries(int n){
     int a=0, b=1, next;
@@ -362,6 +436,9 @@ void fibonacciSeries(int n){
     }
     printf("\n");
 }
+void (*fibonacciSeriesPtr)(int) = fibonacciSeries;
+
+//------------------------------------------------------------------
 
 void evenwithinrange(int start, int end){
     for(int i=start;i<end;i++){
@@ -370,6 +447,9 @@ void evenwithinrange(int start, int end){
         }
     }
 }
+void (*evenwithinrangePtr)(int, int) = evenwithinrange;
+
+//------------------------------------------------------------------
 
 void oddwithinrange(int start, int end){
     for(int i=start;i<end;i++){
@@ -378,6 +458,9 @@ void oddwithinrange(int start, int end){
         }
     }
 }
+void (*oddwithinrangePtr)(int, int) = oddwithinrange;
+
+//------------------------------------------------------------------
 
 void areaofCircle(float radius){
     float pi=3.14;
@@ -390,6 +473,9 @@ void areaofCircle(float radius){
         printf("Invalid values\n");
     }
 }
+void (*areaofCirclePtr)(float) = areaofCircle;
+
+//------------------------------------------------------------------
 
 void areaofRectangle(float length, float width){
     float area;
@@ -401,6 +487,9 @@ void areaofRectangle(float length, float width){
         printf("Invalid values\n");
     }
 }
+void (*areaofRectanglePtr)(float, float) = areaofRectangle;
+
+//------------------------------------------------------------------
 
 void areaofTriangle(float base, float height){
     float area;
@@ -412,6 +501,9 @@ void areaofTriangle(float base, float height){
         printf("Invalid values\n");
     }
 }
+void (*areaofTrianglePtr)(float, float) = areaofTriangle;
+
+//------------------------------------------------------------------
 
 void areaofSquare(float side){
     float area;
@@ -423,12 +515,18 @@ void areaofSquare(float side){
         printf("Invalid values\n");
     }
 }
+void (*areaofSquarePtr)(float) = areaofSquare;
+
+//------------------------------------------------------------------
 
 void numberswithinrange(int start, int end){
     for(int i=start;i<=end;i++){
         printf("%d\n", i);
     }
 }
+void (*numberswithinrangePtr)(int, int) = numberswithinrange;
+
+//------------------------------------------------------------------
 
 void iterationsum(int start, int end){
     int sum=0;
@@ -437,6 +535,9 @@ void iterationsum(int start, int end){
         printf("%d\n",sum);
     }
 }
+void (*iterationsumPtr)(int, int) = iterationsum;
+
+//------------------------------------------------------------------
 
 void sumwithinrange(int start, int end){
     int sum=0;
@@ -445,6 +546,9 @@ void sumwithinrange(int start, int end){
     }
     printf("%d\n",sum);
 }
+void (*sumwithinrangePtr)(int, int) = sumwithinrange;
+
+//------------------------------------------------------------------
 
 void isadam(int num){
     int original=num, rev=0, square, squareOfRev, revSquare=0;
@@ -466,3 +570,6 @@ void isadam(int num){
         printf("%d is not an adam's number\n", num);
     }
 }
+void (*isadamPtr)(int) = isadam;
+
+
